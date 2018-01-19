@@ -5,7 +5,15 @@ import (
 	"math/cmplx"
 )
 
-func Fft(a []complex128, n int) []complex128 {
+func FFT(x []complex128, n int) []complex128 {
+	y := fft(x, n)
+	for i := 0; i < n; i++ {
+		y[i] = y[i] / complex(float64(n), 0.0)
+	}
+	return y
+}
+
+func fft(a []complex128, n int) []complex128 {
 	x := make([]complex128, n)
 	copy(x, a)
 
