@@ -13,6 +13,17 @@ func FFT(x []complex128, n int) []complex128 {
 	return y
 }
 
+func IFFT(x []complex128, n int) []complex128 {
+	for i := 0; i < n; i++ {
+		x[i] = complex(real(x[i]), -1.0 * imag(x[i]))
+	}
+	y := fft(x, n)
+	for i := 0; i < n; i++ {
+		y[i] = complex(real(y[i]), -1.0 * imag(y[i]))
+	}
+	return y
+}
+
 func fft(a []complex128, n int) []complex128 {
 	x := make([]complex128, n)
 	copy(x, a)
