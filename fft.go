@@ -32,9 +32,7 @@ func fft(a []complex128, n int) []complex128 {
 	j := 0
 	for i := 0; i < n; i++ {
 		if i < j {
-			temp := x[j]
-			x[j] = x[i]
-			x[i] = temp
+			x[i], x[j] = x[j], x[i]
 		}
 		m := n / 2
 		for {
