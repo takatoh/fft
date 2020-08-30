@@ -16,11 +16,11 @@ func FFT(x []complex128, n int) []complex128 {
 func IFFT(x []complex128, n int) []complex128 {
 	y := make([]complex128, n)
 	for i := 0; i < n; i++ {
-		y[i] = complex(real(x[i]), -1.0 * imag(x[i]))
+		y[i] = cmplx.Conj(x[i])
 	}
 	y = fft(y, n)
 	for i := 0; i < n; i++ {
-		y[i] = complex(real(y[i]), -1.0 * imag(y[i]))
+		y[i] = cmplx.Conj(y[i])
 	}
 	return y
 }
