@@ -6,7 +6,11 @@ Fast Fourier Transform in Golang.
 
 ## Install
 
-    $ go get github.com/takatoh/fft
+`go.mod` ファイルに次の行を追記してください。
+
+```
+require github.com/takatoh/fft v1.0.0
+```
 
 ## Usage
 
