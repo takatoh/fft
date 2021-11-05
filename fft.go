@@ -36,10 +36,14 @@ func fft(a []complex128, n int) []complex128 {
 		}
 		m := n / 2
 		for {
-			if j < m { break }
+			if j < m {
+				break
+			}
 			j = j - m
 			m = m / 2
-			if m < 2 { break }
+			if m < 2 {
+				break
+			}
 		}
 		j = j + m
 	}
@@ -50,13 +54,13 @@ func fft(a []complex128, n int) []complex128 {
 		}
 		istep := kmax * 2
 		for k := 0; k < kmax; k++ {
-			theta := complex(0.0, -1.0 * math.Pi * float64(k) / float64(kmax))
+			theta := complex(0.0, -1.0*math.Pi*float64(k)/float64(kmax))
 			for i := k; i < n; i += istep {
 				j := i + kmax
 				temp := x[j] * cmplx.Exp(theta)
 				x[j] = x[i] - temp
 				x[i] = x[i] + temp
-			} 
+			}
 		}
 		kmax = istep
 	}
