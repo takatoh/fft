@@ -25,6 +25,16 @@ func IFFT(x []complex128, n int) []complex128 {
 	return y
 }
 
+func FFTFreq(n int, dt float64) []float64 {
+	ndt := float64(n) * dt
+	f := make([]float64, n)
+	for i := 0; i < n/2; i++ {
+		f[i] = float64(i) / ndt
+		f[n/2+i] = -float64(n/2-i) / ndt
+	}
+	return f
+}
+
 func fft(a []complex128, n int) []complex128 {
 	x := make([]complex128, n)
 	copy(x, a)
