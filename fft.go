@@ -7,8 +7,9 @@ import (
 
 func FFT(x []complex128, n int) []complex128 {
 	y := fft(x, n)
+	complex_n := complex(float64(n), 0.0)
 	for i := 0; i < n; i++ {
-		y[i] = y[i] / complex(float64(n), 0.0)
+		y[i] = y[i] / complex_n
 	}
 	return y
 }
