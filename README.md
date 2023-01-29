@@ -9,7 +9,7 @@ Fast Fourier Transform in Golang.
 `go.mod` ファイルに次の行を追記してください。
 
 ```
-require github.com/takatoh/fft v1.0.0
+require github.com/takatoh/fft v1.1.0
 ```
 
 ## Usage
