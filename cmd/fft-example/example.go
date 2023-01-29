@@ -33,10 +33,11 @@ func main() {
 
 	y := fft.FFT(x, n)
 	z := fft.IFFT(y, n)
+	f := fft.FFTFreq(n, 0.02)
 
-	fmt.Println(" K   DATA  FOURIER TRANSFORM  INVERSE TRANSFORM")
-	for k := 0; k < n ; k++ {
-		fmt.Printf("%2d %6.1f  %8.3f%8.3f   %8.3f%8.3f\n",
-			k, x0[k], real(y[k]), imag(y[k]), real(z[k]), imag(z[k]))
+	fmt.Println(" K   DATA  FOURIER TRANSFORM  INVERSE TRANSFORM  FREQUENCY")
+	for k := 0; k < n; k++ {
+		fmt.Printf("%2d %6.1f  %8.3f%8.3f   %8.3f%8.3f   %8.3f\n",
+			k, x0[k], real(y[k]), imag(y[k]), real(z[k]), imag(z[k]), f[k])
 	}
 }
