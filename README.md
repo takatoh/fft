@@ -28,10 +28,10 @@ y := fft.FFT(x, n)
 z := fft.IFFT(y, n)
 ```
 
-フーリエ変換による各成分に対応する周波数を得るには `fft.FFTRreq` 関数または `fft.RFFTFreq` 関数を使います。`n` はデータ数（2のべき乗）、`dt` は時間間隔です。
+フーリエ変換による各成分に対応する周波数を得るには `fft.FFTFreq` 関数または `fft.RFFTFreq` 関数を使います。`n` はデータ数（2のべき乗）、`dt` は時間間隔です。
 
 ```go
-f := fft.FFTRreq(n, dt)
+f := fft.FFTFreq(n, dt)
 rf := fft.RFFTFreq(n, dt)
 ```
 
