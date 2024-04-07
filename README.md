@@ -41,6 +41,22 @@ rf := fft.RFFTFreq(n, dt)
 
 `fft.RFFTFreq` では、ナイキスト周波数 `rf[n/2]` が正値です。
 
+## Utilities
+
+`fft.FFT` や `fft.IFFT` に与えるデータは、2のべき乗個の複素数である必要があります。
+
+`fft.PowerOf2` 関数は、引数 `n` よりも大きく、かつ最も小さい2のべき乗の数を返します。
+
+```go
+nn := fft.PowerOf2(n)
+```
+
+`fft.MakeComplexData` 関数は、実数のデータを複素数に変換し、かつ2のべき乗個に拡張します。
+
+```go
+complexData, nn := fft.MakeComplexData(readData)
+```
+
 ## License
 
 MIT License
