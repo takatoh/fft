@@ -45,6 +45,14 @@ func RFFTFreq(n int, dt float64) []float64 {
 	return f
 }
 
+func PowerOf2(n int) int {
+	nn := 2
+	for nn < n {
+		nn *= 2
+	}
+	return nn
+}
+
 func fft(a []complex128, n int) []complex128 {
 	x := make([]complex128, n)
 	copy(x, a)
