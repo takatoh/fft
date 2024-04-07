@@ -53,6 +53,19 @@ func PowerOf2(n int) int {
 	return nn
 }
 
+func MakeComplexData(data []float64) ([]complex128, int) {
+	n := len(data)
+	nn := PowerOf2(n)
+	cmplxData := make([]complex128, nn)
+	for i := 0; i < n; i++ {
+		cmplxData[i] = complex(data[i], 0.0)
+	}
+	for i := n; i < nn; i++ {
+		cmplxData[i] = complex(0.0, 0.0)
+	}
+	return cmplxData, nn
+}
+
 func fft(a []complex128, n int) []complex128 {
 	x := make([]complex128, n)
 	copy(x, a)
