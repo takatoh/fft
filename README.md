@@ -54,7 +54,7 @@ nn := fft.PowerOf2(n)
 `fft.MakeComplexData` 関数は、実数のデータを複素数に変換し、かつ2のべき乗個に拡張します。
 
 ```go
-complexData, nn := fft.MakeComplexData(readData)
+complexData, nn := fft.MakeComplexData(realData)
 ```
 
 ## License
