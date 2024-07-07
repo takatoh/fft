@@ -25,18 +25,14 @@ func main() {
 		-7,
 		-2,
 	}
-	n := len(x0)
-	x := make([]complex128, n)
-	for k := 0; k < n; k++ {
-		x[k] = complex(x0[k], 0.0)
-	}
+	x, nn := fft.MakeComplexData(x0)
 
-	y := fft.FFT(x, n)
-	z := fft.IFFT(y, n)
-	f := fft.FFTFreq(n, 0.02)
+	y := fft.FFT(x, nn)
+	z := fft.IFFT(y, nn)
+	f := fft.FFTFreq(nn, 0.02)
 
 	fmt.Println(" K   DATA  FOURIER TRANSFORM  INVERSE TRANSFORM  FREQUENCY")
-	for k := 0; k < n; k++ {
+	for k := 0; k < nn; k++ {
 		fmt.Printf("%2d %6.1f  %8.3f%8.3f   %8.3f%8.3f   %8.3f\n",
 			k, x0[k], real(y[k]), imag(y[k]), real(z[k]), imag(z[k]), f[k])
 	}
